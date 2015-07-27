@@ -8,13 +8,19 @@
                 <label class="item item-input">
                     <input type="text" ng-required="true" ng-model="contato.telefone" placeholder="Numero">
                 </label>
-                <button class="button button-full button-positive" ng-disabled="ContatosForm.$invalid" type="submit">
-                    Salvar
-                </button>
-                <button class="button button-full button-positive" ng-click="limparCampos()" type="button">
-                    Limpar Campos
-                </button>
+                <div class="item">
+                    <img ng-src="{{contato.img.src}}" />
+                </div>
             </div>
+            <button class="button button-full button-positive" type="button" ng-click="tirarFoto()">
+                Capturar foto
+            </button>
+            <button class="button button-full button-positive" ng-disabled="ContatosForm.$invalid" type="submit">
+                Salvar
+            </button>
+            <button class="button button-full button-positive" ng-click="limparCampos()" type="button">
+                Limpar Campos
+            </button>
         </form>
     </ion-content>
 </ion-view>

@@ -37,7 +37,7 @@ app.controller('ContatosListCtrl', function ($scope, ContatosRepository, $rootSc
         $scope.continuarBusca = true;
     }
 })
-    .controller('ContatosEditCtrl', function ($scope, ContatosRepository, $rootScope, $stateParams, $location) {
+    .controller('ContatosEditCtrl', function ($scope, ContatosRepository, $rootScope, $stateParams, $location, $cordovaCamera) {
 
         if( $stateParams.id){
             ContatosRepository.get($stateParams.id).then(function (result) {
@@ -60,4 +60,29 @@ app.controller('ContatosListCtrl', function ($scope, ContatosRepository, $rootSc
             $scope.contato = {};
         }
 
+        $scope.tirarFoto = function() {
+            ionic.Platform.ready(function() {
+
+                var options = {
+                    quality: 50,
+                    destinationType: Camera.DestinationType.DATA_URL,
+                    sourceType: Camera.PictureSourceType.CAMERA,
+                    allowEdit: true,
+                    encodingType: Camera.EncodingType.JPEG,
+                    targetWidth: 100,
+                    targetHeight: 100,
+                    popoverOptions: CameraPopoverOptions,
+                    saveToPhotoAlbum: false
+                };
+
+                $cordovaCamera.getPicture(options).then(function(imageData) {
+                    $scope.contato.img = {};
+                    $scope.contato.img.src = "data:image/jpeg;base64," + imageData;
+                }, function(err) {
+                });
+
+
+            });
+
+        };
     });
