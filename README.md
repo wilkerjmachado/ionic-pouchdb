@@ -1,7 +1,7 @@
 # ionic-pouchdb
 Este aplicativo foi desenvolvido para fins de demonstração utilizando Ionic e PouchDB para utilização off-line. Estou compartilhando o código para aqueles que estão interessados ​​em estudar.
 
-## Pre requirements
+## Pré requisitos
 - Node.js e NPM instalados
 - Ionic CLI instalado, use this command to install globally the ionic command :
 ```shell
