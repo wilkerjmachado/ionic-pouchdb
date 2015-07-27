@@ -1,0 +1,21 @@
+<ion-view title="List">
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="contato in contatos">
+                <h2>{{contato.nome}}</h2>
+                <p>{{contato.telefone}}</p>
+                <ion-option-button class="button-info" ng-click="editar(contato)">
+                    Editar
+                </ion-option-button>
+                <ion-option-button class="button-assertive" ng-click="excluir($index, contato)">
+                    Excluir
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll
+                ng-if="continuarBusca"
+                on-infinite="atualizarLista()"
+                distance="20%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

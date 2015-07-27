@@ -1,0 +1,20 @@
+<ion-view title="Edit">
+    <ion-content>
+        <form ng-submit="salvarContato(contato)" name="ContatosForm">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" ng-required="true" ng-model="contato.nome" placeholder="Nome">
+                </label>
+                <label class="item item-input">
+                    <input type="text" ng-required="true" ng-model="contato.telefone" placeholder="Numero">
+                </label>
+                <button class="button button-full button-positive" ng-disabled="ContatosForm.$invalid" type="submit">
+                    Salvar
+                </button>
+                <button class="button button-full button-positive" ng-click="limparCampos()" type="button">
+                    Limpar Campos
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
